@@ -1,0 +1,2187 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!AP5:AP",
+          "refId": "Timeline",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!BS5:BW",
+          "refId": "Rating",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Rating Distribution",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "1 Star Reviews": "1 Star",
+              "1 star total reviews": "1 star",
+              "2 Star Reviews": "2 Stars",
+              "2 star total reviews": "2 stars",
+              "3 Star Reviews": "3 Stars",
+              "3 star total reviews": "3 stars",
+              "4 Star Reviews": "4 Stars",
+              "4 star total reviews": "4 stars",
+              "5 Star Reviews": "5 Stars",
+              "5 star total reviews": "5 stars"
+            }
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "max": 2,
+          "min": 1,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 10,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!C5:C",
+          "refId": "Rating",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Average Rating",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "labelsToFields": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "mean"
+            ]
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 0
+      },
+      "id": 28,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 12,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!AP5:AP",
+          "refId": "Timeline",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!BX5:CB",
+          "refId": "Polarity",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Polarity Bins",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "max": 8,
+          "min": -10,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 70
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 10,
+        "y": 4
+      },
+      "id": 8,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 26,
+          "refId": "A"
+        }
+      ],
+      "title": "Sentiment Score",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "percent"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 8
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!AP5:AP",
+          "refId": "Timeline",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!BS5:BW",
+          "refId": "Rating Distribution",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Rating Distribution Trend (Weekly)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "1 Star Reviews": "1 Star",
+              "1 star total reviews": "1 star",
+              "2 Star Reviews": "2 Stars",
+              "2 star total reviews": "2 star",
+              "3 Star Reviews": "3 Stars",
+              "3 star total reviews": "3 star",
+              "4 Star Reviews": "4 Stars",
+              "4 star total reviews": "4 star",
+              "5 Star Reviews": "5 Stars",
+              "5 star total reviews": "5 star"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 8
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!AP5:AP",
+          "refId": "Timeline",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!CK5:CK",
+          "refId": "Sentiment Score",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Sentiment Score Trend (Weekly)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "percent"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 8
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 28,
+          "refId": "A"
+        }
+      ],
+      "title": "Polarity Distribution Trend (Weekly)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 17
+      },
+      "id": 14,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": true
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!J5:O",
+          "refId": "Labels",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Review Distribution",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 32,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "never",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 0,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!AA5:AA",
+          "refId": "Polarity",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!J5:O",
+          "refId": "Labels",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Polarity Distribution of Labels",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Customer Support": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Feature Request": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Functionality": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Performance": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Polarity": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Positive Polarity": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Subscription": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "User Experience": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Customer Support (sum)": "Customer Support",
+              "Feature Request (sum)": "Feature Request",
+              "Functionality (sum)": "Functionality",
+              "Performance (sum)": "Performance",
+              "Subscription (sum)": "Subscription",
+              "User Experience (sum)": "User Experience"
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "regex",
+                  "options": {
+                    "value": "(Positive|Negative)"
+                  }
+                },
+                "fieldName": "Polarity"
+              }
+            ],
+            "match": "all",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "percent"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "id": 41,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!AP5:AP",
+          "refId": "Timeline",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!CL5:CQ",
+          "refId": "Labels",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Review Distribution Trend (Positive)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "percent"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 42,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!AP5:AP",
+          "refId": "Timeline",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "hide": false,
+          "range": "${packageName:pipe}!CR5:CW",
+          "refId": "Labels",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Review Distribution Trend (Negative)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 408
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 157
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "id": 6,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!CY6:DA11",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Functionality (Positive)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 408
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 157
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 35
+      },
+      "id": 39,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!CY25:DA30",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Functionality (Negative)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 407
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 42
+      },
+      "id": 16,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DC6:DE11",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "User Experience (Positive)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 409
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 42
+      },
+      "id": 34,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DC25:DE30",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "User Experience (Negative)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 407
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 49
+      },
+      "id": 18,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DG6:DI11",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Performance (Positive)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 409
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 49
+      },
+      "id": 35,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DG25:DI30",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Performance (Negative)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 408
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 56
+      },
+      "id": 20,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DK6:DM11",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Customer Support (Positive)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 410
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 56
+      },
+      "id": 36,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DK25:DM30",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Customer Support (Negative)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 405
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 63
+      },
+      "id": 22,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DO6:DQ11",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Subscription (Positive)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 411
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 63
+      },
+      "id": 37,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DO25:DQ30",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Subscription (Negative)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 404
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 70
+      },
+      "id": 24,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DS6:DU11",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Feature Request (Positive)",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fpXpw_W4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top Reviews"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 414
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 70
+      },
+      "id": 38,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.2",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fpXpw_W4z"
+          },
+          "range": "${packageName:pipe}!DS25:DU30",
+          "refId": "A",
+          "spreadsheet": "1Cpj8FDgNeWxohK5rVOJXOT_fd-lIggoeSELoFacOKE0"
+        }
+      ],
+      "title": "Feature Request (Negative)",
+      "type": "table"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "Financial Calculator for GST",
+          "value": "Dashboard(GSTCalculator)"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Package Name",
+        "multi": false,
+        "name": "packageName",
+        "options": [
+          {
+            "selected": false,
+            "text": "Huge Digital Clock",
+            "value": "Dashboard(HDC)"
+          },
+          {
+            "selected": true,
+            "text": "Financial Calculator for GST",
+            "value": "Dashboard(GSTCalculator)"
+          }
+        ],
+        "query": "Huge Digital Clock : Dashboard(HDC), Financial Calculator for GST : Dashboard(GSTCalculator)",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "2020-12-31T18:30:00.000Z",
+    "to": "2022-09-09T18:29:59.000Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Review Dashboard",
+  "uid": "SzeQIeZ4k",
+  "version": 33,
+  "weekStart": ""
+}
